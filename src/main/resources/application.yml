@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: mcp-server-viacep
+  main:
+    banner-mode: off
+server:
+  port: 8080
+  servlet:
+    context-path: /mcp-server-viacep
+
