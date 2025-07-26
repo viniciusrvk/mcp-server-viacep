@@ -1,10 +1,26 @@
+#spring:
+#  ai:
+#    mcp:
+#      server:
+#        name: vicep-mcp-server
+#        version: 0.0.1
+#        base-url: "/viacep/v0"
+#        instructions: "Esse server prove informações de endereços."
+
+# Using spring-ai-starter-mcp-server-webmvc
 spring:
-  application:
-    name: mcp-server-viacep
-  main:
-    banner-mode: off
-server:
-  port: 8080
-  servlet:
-    context-path: /mcp-server-viacep
+  ai:
+    mcp:
+      server:
+        name: vicep-mcp-server
+        version: 0.0.1
+        type: SYNC
+        instructions: "Esse server prove informações de endereços."
+        base-url: '/viacep/v0'
+        sse-message-endpoint: /mcp/messages
+
+logging:
+  level:
+    io:
+      modelcontextprotocol: DEBUG
 
