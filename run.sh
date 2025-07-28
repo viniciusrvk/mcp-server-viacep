@@ -12,4 +12,4 @@ fi
 
 echo "Executando a aplicação: $JAR_FILE"
 # Executa o JAR da aplicação Spring Boot.
-java -jar -Dspring.profiles.active=develop "$JAR_FILE"
+java -jar  "$JAR_FILE"

@@ -22,5 +22,5 @@ spring:
 logging:
   level:
     io:
-      modelcontextprotocol: DEBUG
+      modelcontextprotocol: ${LOG_LEVEL:DEBUG}
 
