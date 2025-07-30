@@ -16,8 +16,6 @@ spring:
         version: 0.0.1
         type: SYNC
         instructions: "Esse server prove informações de endereços."
-        base-url: '/viacep/v0'
-        sse-message-endpoint: /mcp/messages
 
 logging:
   level:
