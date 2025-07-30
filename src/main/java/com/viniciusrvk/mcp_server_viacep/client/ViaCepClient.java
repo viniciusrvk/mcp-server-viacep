@@ -1,22 +1,15 @@
 package com.viniciusrvk.mcp_server_viacep.client;
 
 import com.viniciusrvk.mcp_server_viacep.dto.CepResponse;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
-import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-@Component
-@RequiredArgsConstructor
-public class ViaCepClient {
+@FeignClient(value = "viaCepClient", url = "https://viacep.com.br/ws")
+public interface ViaCepClient {
 
-    private final WebClient.Builder webClientBuilder;
+    @RequestMapping(method = RequestMethod.GET, value = "/{cep}/json/")
+    CepResponse getCep(@PathVariable("cep") String cep);
 
-    public Mono<CepResponse> addressByCep(String cep) {
-        return webClientBuilder.build()
-                .get()
-                .uri("https://viacep.com.br/ws/{cep}/json/", cep)
-                .retrieve()
-                .bodyToMono(CepResponse.class);
-    }
 }

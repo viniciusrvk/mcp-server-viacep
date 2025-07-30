@@ -16,6 +16,6 @@ public class CepService {
     @Tool(description = "Consulta de endereço via CEP")
     public CepResponse getCep(@ToolParam(description = "CEP, e.g., 59154310") String cep){
         final var cepTratado = cep.replaceAll("[^0-9]", "");
-        return viaCepClient.addressByCep(cepTratado).block();
+        return viaCepClient.getCep(cepTratado);
     }
 }
